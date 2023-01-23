@@ -1,0 +1,33 @@
+nav {
+    margin-top: 8px;
+    margin-left: -4px;
+    margin-right: -200px;
+}
+
+.abs-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shadow {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 25px, rgba(0, 0, 0, 0.15) 0px 5px 10px;
+    transition: 1s;
+}
+
+    .shadow:hover {
+        transform: scale(1.05);
+    }
+
+
+.contingut-text{
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+    width: 65%;
+    margin: auto;
+}
+
+.contingut-text h1{
+    font-weight: bold;
+    font-size: 33px;
+}

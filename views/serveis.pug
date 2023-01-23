@@ -1,0 +1,101 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Serveis
+  // Enllaços a documents CSS
+  link(rel='stylesheet' href='./stylesheets/serveis.css')
+  link(rel='stylesheet' href='./stylesheets/estils.css')
+  // Link de Bootstrap CSS
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65' crossorigin='anonymous')
+style.
+  nav ul li {
+    display: inline-block;
+    margin: 21px 5px 0px 5px;
+  }
+  .menu-header {
+    margin-left: 104px;
+    margin-right: 104px;
+  }
+// Header y menú de navegación de la página
+.menu-header
+  nav
+    a.logo(href='calendari')
+      canvas#logo(width='90' height='80')
+    ul
+      li
+        a.menu-options(href='calendari') CALENDARI
+      li
+        a.menu-options(href='informacio') INFORMACI&Oacute;
+      li
+        a.menu-options(href='serveis') SERVEIS
+// Contingut de la pàgina
+br
+br
+br
+.contingut-text
+  h1 Quins serveis oferim?
+  p
+    | Aquests son els serveis que els nostres usuaris poden rebre i oferir a Time Bank by SGX.
+  br
+  .row.row-cols-1.row-cols-md-3.g-4
+    .col
+      .card.shadow(style='height: 455px;')
+        a(href='calendari')
+          img.card-img-top(src='./images/futbol.png')
+        .card-body
+          h5.card-title
+            b F&uacute;tbol
+          p.card-text
+            | Les classes que ofereixen els nostres usuaris estan orientades cap al desenvolupament complet de les capacitats i habilitats dels jugadors. Aquestes miren de millorar les seves qualitats volitives tan fonamentals en els esports d&apos;equip, com ara la voluntat, l&apos;esfor&ccedil; i la cooperaci&oacute;.
+    .col
+      .card.shadow(style='height: 455px;')
+        a(href='calendari')
+          img.card-img-top(src='./images/basket.png')
+        .card-body
+          h5.card-title
+            b Basket
+          p.card-text
+            | Les classes que ofereixen els nostres usuaris estan orientades cap al desenvolupament de les habilitats dels jugadors. Els seus objectius son millorar les qualitats dels nostres usuaris, aix&iacute; com les seves habilitats i les seves compet&egrave;ncies.
+    .col
+      .card.shadow(style='height: 455px;')
+        a(href='calendari')
+          img.card-img-top(src='./images/tennis.png')
+        .card-body
+          h5.card-title
+            b Tennis
+          p.card-text
+            | Amb les classes que ofereixen els nostres usuaris, ajudem a millorar a colpejar a la pilota amb raqueta de dreta i de rev&eacute;s, colpejar la pilota en intercanvi amb el monitor, aconseguir la millor coordinaci&oacute; oculomanual possible, i aconseguir una bona coordinaci&oacute; bra&ccedil;os-cames.
+    .col
+      .card.shadow(style='height: 455px;')
+        a(href='calendari')
+          img.card-img-top(src='./images/escacs.jpg')
+        .card-body
+          h5.card-title
+            b Escacs
+          p.card-text
+            | Els Escacs &eacute;s un esport que fomenta els valors positius, la sociabilitat, la resist&egrave;ncia a les fustracions, el control de la impulsivitat, i el saber perdre. Amb les nostres classes t&apos;ajudarem a millorar la teva t&egrave;cnica i els teus coneixements sobre el funcionament del joc.
+    .col
+      .card.shadow(style='height: 455px;')
+        a(href='calendari')
+          img.card-img-top(src='./images/angles.jpg')
+        .card-body
+          h5.card-title
+            b Angl&egrave;s
+          p.card-text
+            | Amb les classes dels nostres usuaris aprendr&agrave;s les estructures i el vocabulari necessari per descriure tot all&ograve; que t&apos;envolta. Ets tu el protagonista del teu aprenentatge. El nostre objectiu es fer que practiqueu i consolideu la informaci&oacute; necess&agrave;ria per comunicar-vos en angl&egrave;s correctament.
+    .col
+      .card.shadow(style='height: 455px;')
+        a(href='calendari')
+          img.card-img-top(src='./images/cuina.jpg')
+        .card-body
+          h5.card-title
+            b Cuina
+          p.card-text
+            | Amb les nostres classes, els nostres usuaris busquen ensenyar i aprendre les t&egrave;cniques de cuina b&agrave;siques, la ci&egrave;ncia dels aliments, el tracte amb el client i les normes d&apos;economia b&agrave;siques per al sosteniment d&apos;un negoci hostaler.
+br
+br
+// Enllaç a document JavaScript
+script(src='./javascripts/estils.js')
+// Link de JavaScript Bootstrap
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4' crossorigin='anonymous')

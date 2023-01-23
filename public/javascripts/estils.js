@@ -3,7 +3,7 @@ if (canvas.getContext) {
 
     var ctx = canvas.getContext('2d');
     imatge = new Image();
-    imatge.src = '../images/logo.png';
+    imatge.src = '../images/logo2.png';
     imatge.onload = function () {
         ctx.drawImage(imatge, 0, 5, 80, 53);
     }

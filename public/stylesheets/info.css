@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+.contingut-text {
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+    width: 65%;
+    margin: auto;
+}
+
+video {
+    margin-top: 4%;
+    margin-bottom: 4%;
+    border: 1px solid;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 25px, rgba(0, 0, 0, 0.15) 0px 5px 10px;
+}
+
+.contingut-text h1{
+    font-weight: bold;
+}

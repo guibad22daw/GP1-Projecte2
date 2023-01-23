@@ -14,4 +14,14 @@ router.get('/calendari', function(req, res, next) {
   res.render('calendari');
 });
 
+router.get('/informacio', function(req, res, next) {
+  res.render('informacio');
+});
+
+router.get('/serveis', function(req, res, next) {
+  res.render('serveis');
+});
+
+
+
 module.exports = router;
