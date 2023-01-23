@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+body {
+    background-color: #FFF1F1;
+}
+
+/**********************************************************************************************************
+******************************************* MENU DE NAVEGACIÓN *******************************************/
+    /* Dimensiones para el icono del menú que cuando seleccionas te despliega el menú */
+    .menu-header {
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+        margin-left: 100px;
+        margin-right: 100px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 15px 15px -15px;
+    }
+
+    /* Dimensiones para el menú de navegación */
+    nav {
+        background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+        height: 65px;
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .logo {
+        padding: 0px 100px 0px 100px;
+    }
+    
+        .logo:hover {
+            cursor: pointer;
+            opacity: 0.6;
+        }
+    
+    /* Estilos para los elementos dentro del nav */
+    nav ul {
+        float: right;
+        margin: 0px;
+        padding: 0px;
+        margin-right: 90px;
+    }
+    
+    nav ul li {
+        display: inline-block;
+        margin: 23px 5px 0px 5px;
+        /* Border y padding pasan a formar parte del width con border-box */
+        box-sizing: border-box;
+        position: relative;
+    }
+    
+    nav ul li a.menu-options {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        padding: 3px 8px 7px 8px;
+        margin: 0px 5px 0px 5px;
+    }
+        /* Para añadir la pequeña barrita abajo que aparece y desaparece en los elementos del menú */
+        nav ul li::after {
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: white;
+            display: block;
+            margin: auto;
+            margin-top:5px;
+            transition: .5s;
+        }
+        
+        nav ul li:hover::after {
+            width: 80%;
+        }

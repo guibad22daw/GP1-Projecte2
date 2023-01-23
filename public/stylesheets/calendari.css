@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+body {
+  background-image: url("./calendari.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.contenedor-flex {
+  display: flex;
+  margin-top: 0.2%;
+  justify-content: center;
+}
+
+#container {
+  border-radius: 15px;
+  padding: 30px 60px 30px 60px;
+}
+
+button {
+  width: 75px;
+  cursor: pointer;
+  box-shadow: 0px 0px 2px gray;
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+}
+
+#header {
+  padding: 10px;
+  color: #d36c6c;
+  font-size: 26px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+#header button {
+  background-color: #92a1d1;
+}
+
+#container {
+  width: 770px;
+}
+
+#weekdays {
+  width: 100%;
+  display: flex;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  opacity: 0.7;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#weekdays div {
+  width: 100px;
+  padding: 10px;
+}
+
+#calendar {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.day {
+  width: 100px;
+  padding: 10px;
+  height: 100px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: white;
+  margin: 5px;
+  box-shadow: 0px 0px 3px #CBD4C2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.day:hover {
+  background-color: /*#e8faed*/ #ffe8cd;
+}
+
+.day+#currentDay {
+  background-color: /*#e8f4fa*/ #ffe8cd;
+}
+
+.event {
+  font-size: 10px;
+  padding: 3px;
+  background-color: #58bae4;
+  color: white;
+  border-radius: 5px;
+  max-height: 55px;
+  overflow: hidden;
+}
+
+#rebre {
+  font-size: 10px;
+  padding: 3px;
+  background-color: #ed985b;
+  color: white;
+  border-radius: 5px;
+  max-height: 55px;
+  overflow: hidden;
+}
+
+.padding {
+  cursor: default !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+#newEventModal,
+#deleteEventModal {
+  display: none;
+  z-index: 20;
+  padding: 25px;
+  background-color: white;
+  box-shadow: 0px 0px 3px black;
+  border-radius: 15px;
+  width: 500px;
+  top: 100px;
+  position: absolute;
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+
+#eventTitleInput {
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  box-shadow: 0px 0px 3px gray;
+}
+
+#eventTitleInput.error {
+  border: 2px solid red;
+}
+
+#cancelButton,
+#deleteButton {
+  background-color: #ff5c5c;
+  width: 48%;
+  height: 40px;
+  border-radius: 15px;
+  transition: 1s;
+}
+
+  #cancelButton:hover, #deleteButton:hover {
+    transition: 1s;
+    background-color: #ce0000;
+  }
+
+#saveButton,
+#closeButton {
+  background-color: #4c8eff;
+  width: 48%;
+  height: 40px;
+  border-radius: 15px;
+  transition: 1s;
+}
+
+  #saveButton:hover, #closeButton:hover {
+    transition: 1s;
+    background-color: #0058f0;
+  }
+
+#eventText {
+  font-size: 14px;
+}
+
+#modalBackDrop {
+  display: none;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.logout {
+  text-decoration:none;
+  color: white;
+  width: 110px;
+  background-color: #ff5c5c;
+  padding: 13px 17px 13px 17px;
+  border-radius: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+  transition: 1s;
+}
+
+  .logout:hover {
+    background-color: #ce0000;
+  }

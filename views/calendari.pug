@@ -1,0 +1,65 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Calendari
+  // Enllaços a documents CSS
+  link(rel='stylesheet' href='./stylesheets/calendari.css')
+  link(rel='stylesheet' href='./stylesheets/estils.css')
+  // Enllaç a document JavaScript
+  script(src='./javascripts/calendari.js')
+// Header y menú de navegación de la página
+.menu-header
+  nav
+    a.logo(href='calendari')
+      canvas#logo(width='90' height='80')
+    ul
+      li
+        a.menu-options(href='calendari') CALENDARI
+      li
+        a.menu-options(href='informacio') INFORMACI&Oacute;
+      li
+        a.menu-options(href='serveis') SERVEIS
+// Contingut de la pàgina
+.contenedor-flex
+  #container
+    #header
+      #monthDisplay
+    #weekdays
+      div Dilluns
+      div Dimarts
+      div Dimecres
+      div Dijous
+      div Divendres
+      div Dissabte
+      div Diumenge
+    #calendar
+  #newEventModal
+    h2 Nou esdeveniment
+    // <input id="eventTitleInput" placeholder="Descripció de l'esdeveniment" />
+    p Selecciona la activitat que vols oferir o rebre:
+    select#eventTitleInput(name='serveis' style='padding: 10px; border-radius: 10px;')
+      option(value='Fútbol - Oferir' selected='') F&uacute;tbol - Oferir
+      option(value='Fútbol - Rebre') F&uacute;tbol - Rebre
+      option(value='Basket - Oferir') Basket - Oferir
+      option(value='Basket - Rebre') Basket - Rebre
+      option(value='Tennis - Oferir') Tennis - Oferir
+      option(value='Tennis - Rebre') Tennis - Rebre
+      option(value='Escacs - Oferir') Escacs - Oferir
+      option(value='Escacs - Rebre') Escacs - Rebre
+      option(value='Anglès - Oferir') Angl&egrave;s - Oferir
+      option(value='Anglès - Rebre') Angl&egrave;s - Rebre
+      option(value='Cuina - Oferir') Cuina - Oferir
+      option(value='Cuina - Rebre') Cuina - Rebre
+    br
+    button#saveButton Guardar
+    button#cancelButton Cancel&middot;lar
+  #deleteEventModal
+    h2 Esdeveniment
+    p#eventText
+    button#deleteButton Esborrar
+    button#closeButton Tancar
+  #modalBackDrop
+.contenedor-flex
+  a.logout(href='/login') Tanca la sessi&oacute;
+script(src='./javascripts/estils.js')
