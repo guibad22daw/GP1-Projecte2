@@ -26,7 +26,8 @@ window.onload = async function () {
             console.error(error);            
         }
     }
-    let events = await getData();
+    // let events = await getData();
+    let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
     
     const username = getCookie('user');
     const idUsuari = getCookie('id');
