@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 body {
-  background-image: url("./calendari.png");
+  background-image: url("../images/calendari.png");
   background-size: cover;
   background-attachment: fixed;
 }
