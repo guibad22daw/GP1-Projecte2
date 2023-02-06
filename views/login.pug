@@ -51,12 +51,12 @@ section.h-100.gradient-form
               .card-body.p-md-5.mx-md-4
                 .text-center
                   canvas#logo(width='309' height='216')
-                form(action='/desa')
+                form(action='/desa' method='POST')
                   p Introdueix les teves dades
                   .form-outline.mb-4
-                    input#form2Example11.form-control(type='text' placeholder='Usuari' name='nom' pattern='^[A-Za-z0-9_]{1,15}$' required='')
+                    input#form2Example11.form-control(type='text' placeholder='Usuari' name='username' pattern='^[A-Za-z0-9_]{1,15}$' required='')
                   .form-outline.mb-4
-                    input.form-control(type='password' placeholder='Contrasenya' name='password' pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title='Ha de contenir 8 caràcters i almenys un número, una majúscula i una minúscula' required='')
+                    input.form-control(type='password' placeholder='Contrasenya' name='password' title='Ha de contenir 8 caràcters i almenys un número, una majúscula i una minúscula' required='')
                   .text-center.pt-1.mb-5.pb-1
                     button.btn.gradient-custom-2.mb-3(type='submit' value='desa') Inicia sessi&oacute;
             #borde-cambiar.col-lg-6.d-flex.align-items-center.gradient-custom-2
