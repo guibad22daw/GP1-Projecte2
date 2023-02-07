@@ -26,15 +26,16 @@ window.onload = async function () {
             console.error(error);            
         }
     }
-    // let events = await getData();
-    let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
+    
+    let events = await getData();
+    //let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
     
     const username = getCookie('user');
     const idUsuari = getCookie('id');
 
-    //if (!idUsuari || !username) {
-    //    window.location.href = "/login";
-    //}
+    if (!idUsuari || !username) {
+       window.location.href = "/login";
+    }
 
     function openModal(date) {
         clicked = date;
@@ -42,7 +43,7 @@ window.onload = async function () {
         if (username == 'admin') {
             eventForDay = events.find(e => e.date === clicked);
         } else {
-            eventForDay = events.find(e => e.date === clicked && e.id == idUsuari);
+            eventForDay = events.find(e => e.date === clicked && e.user == username);
         }
 
         if (eventForDay) {
@@ -93,7 +94,7 @@ window.onload = async function () {
                 if (username == 'admin') {
                     eventForDay = events.find(event => event.date == dayString);
                 } else {
-                    eventForDay = events.find(event => event.id == idUsuari && event.date == dayString);
+                    eventForDay = events.find(event => event.user == username && event.date == dayString);
                 }
 
                 if (i - paddingDays === day && nav === 0) {
@@ -137,7 +138,6 @@ window.onload = async function () {
             eventTitleInput.classList.remove('error');
 
             events.push({
-                id: idUsuari,
                 user: username,
                 date: clicked,
                 title: eventTitleInput.value,
@@ -153,8 +153,7 @@ window.onload = async function () {
                 console.error(error);
             }
 
-
-            localStorage.setItem('events', JSON.stringify(events));
+            //localStorage.setItem('events', JSON.stringify(events));
             closeModal();
         } else {
             eventTitleInput.classList.add('error');

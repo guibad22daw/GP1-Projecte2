@@ -35,6 +35,37 @@ router.get('/serveis', function (req, res, next) {
   res.render('serveis');
 });
 
+router.get('/get-data', async function (req, res, next) {
+  const Event = mongoose.model('events', eventsSchema);
+  const all = await Event.find({});
+  if(all) {
+    res.send(JSON.stringify(all));
+  } else {
+    console.log("Error");
+  }
+});
+
+const eventsSchema = new mongoose.Schema({
+  user: { type: String, required: true },
+  date: { type: String, required: true },
+  title: { type: String, required: true },
+}, {versionKey: false });
+
+router.post('/save-data', async function (req, res, next) {
+  const Event = mongoose.model('events');
+  const events = await req.body;
+  console.log(JSON.stringify(events));
+  await Event.deleteMany({});
+
+  Event.insertMany(events).then(function() {
+    console.log("Dades inserides");
+    res.sendStatus(200);
+  }).catch(function(error) {
+    console.log(error);
+    res.sendStatus(500);
+  })
+});
+
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
@@ -48,7 +79,7 @@ async function login(username, password, res) {
     const nouUsuari = new User({ username: username, password: hashedPassword });
     await nouUsuari.save()
     console.log("Usuari creat.");
-    fPosaCookie(existeix._id, username, res);
+    fPosaCookie(nouUsuari._id, username, res);
   } else {
     let user = await User.findOne({ username: username }).select('password');
     const [salt, hashedPassword] = user.password.split('$');
