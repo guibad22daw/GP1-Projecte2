@@ -48,6 +48,7 @@ async function login(username, password, res) {
     const nouUsuari = new User({ username: username, password: hashedPassword });
     await nouUsuari.save()
     console.log("Usuari creat.");
+    fPosaCookie(existeix._id, username, res);
   } else {
     let user = await User.findOne({ username: username }).select('password');
     const [salt, hashedPassword] = user.password.split('$');
