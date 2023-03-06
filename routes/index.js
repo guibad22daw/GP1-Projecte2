@@ -3,7 +3,7 @@ var router = express.Router();
 var bd = require('./bd');
 
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('calendari');
 });
 
 router.get('/login', function (req, res, next) {
@@ -20,6 +20,10 @@ router.get('/informacio', function (req, res, next) {
 
 router.get('/serveis', function (req, res, next) {
   res.render('serveis');
+});
+
+router.get('/contacte', function (req, res, next) {
+  res.render('contacte');
 });
 
 router.post('/desa', function (req, res, next) {
