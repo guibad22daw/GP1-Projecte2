@@ -24,7 +24,7 @@ button {
 
 #header {
   padding: 10px;
-  color: #d36c6c;
+  color: rgba(0,70,191,1);
   font-size: 26px;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: bold;
@@ -46,9 +46,8 @@ button {
   color: white;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 600;
-  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
-  opacity: 0.7;
-  border-radius: 10px;
+  background: rgba(76,142,255,1);
+  border-radius: 7px;
   margin-bottom: 10px;
 }
 
@@ -91,21 +90,27 @@ button {
 .event {
   font-size: 10px;
   padding: 3px;
-  background-color: #58bae4;
+  background-color: #1bb6f8;
   color: white;
   border-radius: 5px;
   max-height: 55px;
   overflow: hidden;
+  height: 15px;
+  text-align: center;
+  line-height: 15px;
 }
 
 #rebre {
   font-size: 10px;
   padding: 3px;
-  background-color: #ed985b;
+  background-color: #8000ff;
   color: white;
   border-radius: 5px;
   max-height: 55px;
   overflow: hidden;
+  height: 15px;
+  text-align: center;
+  line-height: 15px;
 }
 
 .padding {
