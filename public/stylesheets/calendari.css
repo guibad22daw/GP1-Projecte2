@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
-body {
-  background-image: url("../images/calendari.png");
-  background-size: cover;
-  background-attachment: fixed;
-}
-
 .contenedor-flex {
   display: flex;
   margin-top: 0.2%;
@@ -87,11 +81,11 @@ button {
 }
 
 .day:hover {
-  background-color: /*#e8faed*/ #ffe8cd;
+  background-color: /*#e8faed*/ #E0F1F8;
 }
 
 .day+#currentDay {
-  background-color: /*#e8f4fa*/ #ffe8cd;
+  background-color: /*#e8f4fa*/ #E0F1F8;
 }
 
 .event {

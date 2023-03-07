@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+* {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#titulo {
+    text-align: center;
+}
+
+#subtitulo {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 2%;
+}
+
+.headerContacte {
+    height: 100vh;
+    align-content: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../imatges/calatrava-bg.png');
+}
+
+.headerContacte h1 {
+    margin-top: 2%;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bolder;
+    color: white;
+}
+
+.headerContacte h2 {
+    text-align: center;
+    font-weight: 100;
+    color: white;
+    margin-top: -30px;
+}
+
+.form {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 570px;
+    padding: 20px;
+    width: 500px;
+    margin: auto;
+    position: relative;
+    top: 2%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.titol {
+    color: rgb(46, 46, 46);
+    font-size: 36px;
+    font-weight: 100;
+    margin-top: 30px;
+}
+
+.subtitol {
+    color: rgb(46, 46, 46);
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.input-div {
+    height: 50px;
+    position: relative;
+    width: 100%;
+}
+
+.nom {
+    margin-top: 40px;
+}
+
+.mail {
+    margin-top: 30px;
+}
+
+.input {
+    background-color: #d8d8d8;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    height: 100%;
+    outline: 0;
+    padding: 15px 20px 15px;
+    width: 100%;
+}
+
+#missatge {
+    height: 120px;
+    resize: none;
+}
+
+.lletrer {
+    background-color: #ffffff;
+    border-radius: 10px;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: -20px;
+    transform: translateY(0);
+    transition: transform 200ms;
+    width: 76px;
+}
+
+.mini {
+    width: 50px;
+}
+
+.input:focus~.lletrer,
+.input:not(:placeholder-shown)~.lletrer {
+    transform: translateY(8px);
+}
+
+.placeholder {
+    color: #65657b;
+    left: 20px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 20px;
+}
+
+.input:focus~.placeholder,
+.input:not(:placeholder-shown)~.placeholder {
+    transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+
+.input:not(:placeholder-shown)~.placeholder {
+    color: #808097;
+}
+
+.input:focus~.placeholder {
+    color: #000000;
+}
+
+.envia {
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 110px;
+    outline: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.envia:active {
+    background-color: #06b;
+}

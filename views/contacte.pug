@@ -1,1 +1,73 @@
-h1 hola
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  title Contacte - BCNArquitectes
+  link(rel='stylesheet' href='../stylesheets/estils.css')
+  link(rel='stylesheet' href='../stylesheets/contacte.css')
+  // Bootsrat
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD' crossorigin='anonymous')
+style.
+  nav ul li {
+    display: inline-block;
+    margin: 19px 5px 0px 5px;
+  }
+  .menu-header {
+    margin: 8px 104px 0px 104px;
+  }
+.menu-header
+  nav
+    a.logo(href='calendari')
+      canvas#logo(width='90' height='80')
+    ul
+      li
+        a.menu-options(href='calendari') CALENDARI
+      li
+        a.menu-options(href='informacio') INFORMACI&Oacute;
+      li
+        a.menu-options(href='serveis') SERVEIS
+      li
+        a.menu-options(href='contacte') CONTACTE
+br
+// Section: Formulari
+section
+  br
+  br
+  .px-4.py-5.px-md-5.text-center.text-lg-start(style='background-color: white; width: 80%; margin: auto; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 1px 3px 6px rgba(0,0,0,0.23); border-radius: 15px;')
+    .container
+      .row.gx-lg-5.align-items-center
+        .col-lg-6.mb-5.mb-lg-0
+          h1.my-5.display-3.fw-bold.ls-tight
+            | Contacta
+            br
+            span.text-primary amb nosaltres
+          p(style='color: hsl(217, 10%, 50.8%)')
+            | Si necessites contactar amb nosaltres per fer-nos alguna consulta,
+            | tens algun dubte o simplement vols deixar el teu comentari,
+            | ho pots fer a través d'aquest formulari.
+            | Ens posarem en contacte amb tu el més aviat possible, estem encantats de poder ajudar-te.
+        .col-lg-6.mb-5.mb-lg-0
+          .card
+            .card-body.py-5.px-md-5
+              form
+                .row
+                  .col-md-6.mb-4
+                    .form-outline
+                      input#form3Example1.form-control(type='text' placeholder="Introdueix el teu nom ...")
+                      label.form-label(for='form3Example1') Nom
+                  .col-md-6.mb-4
+                    .form-outline
+                      input#form3Example2.form-control(type='text' placeholder="Introdueix el teu cognom ...")
+                      label.form-label(for='form3Example2') Cognom
+                // Email input
+                .form-outline.mb-4
+                  input#form3Example3.form-control(type='email' placeholder="exemple@gmail.com")
+                  label.form-label(for='form3Example3') Adreça de correu electrònic
+                // Missatge input
+                .form-outline.mb-4
+                  textarea#form3Example4.form-control(placeholder="Introdueix el teu missatge ..." style='max-height: 200px; min-height: 200px;')
+                  label.form-label(for='form3Example4') Missatge
+                button.btn.btn-primary.btn-block.mb-4(type='submit' style="width: 100%;")
+                  | Envia
+// Enllaç a document JavaScript
+script(src='./javascripts/estils.js')
