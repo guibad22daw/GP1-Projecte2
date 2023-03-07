@@ -3,15 +3,15 @@ var router = express.Router();
 var bd = require('./bd');
 
 router.get('/', function (req, res, next) {
-  res.render('calendari');
+  res.render('inici');
 });
 
 router.get('/login', function (req, res, next) {
   res.render('login');
 });
 
-router.get('/calendari', function (req, res, next) {
-  res.render('calendari');
+router.get('/inici', function (req, res, next) {
+  res.render('inici');
 });
 
 router.get('/informacio', function (req, res, next) {

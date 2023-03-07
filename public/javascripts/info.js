@@ -2,8 +2,6 @@ var video = document.getElementById("video");
 var estat = document.getElementById("estat");
 var temps = document.getElementById("temps");
 
-
-
  function reproduir(){
     video.play();
  }

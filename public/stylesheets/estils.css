@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 /**********************************************************************************************************
 ******************************************* MENU DE NAVEGACIÓN *******************************************/
@@ -8,7 +8,7 @@
     }
     /* Dimensiones para el icono del menú que cuando seleccionas te despliega el menú */
     .menu-header {
-        font-family: 'Josefin Sans', sans-serif;
+        font-family: 'Poppins', sans-serif;
         font-weight: bold;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 15px 15px -15px;
     }
@@ -18,6 +18,7 @@
         background: linear-gradient(90deg, rgba(0,70,191,1) 0%, rgba(76,142,255,1) 100%);
         height: 70px;
         width: 100%;
+        line-height: 70px; 
     }
 
     .logo {
@@ -39,7 +40,6 @@
     
     nav ul li {
         display: inline-block;
-        margin: 29px 5px 0px 5px;
         /* Border y padding pasan a formar parte del width con border-box */
         box-sizing: border-box;
         position: relative;
@@ -60,7 +60,7 @@
             background: white;
             display: block;
             margin: auto;
-            margin-top:5px;
+            margin-top:-15px;
             transition: .5s;
         }
         

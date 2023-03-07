@@ -86,5 +86,5 @@ function fPosaCookie(idUsuari, username, res) {
       httpOnly: false,
       maxAge: 60 * 15 // 15 minuts
    });
-   res.redirect('/calendari');
+   res.redirect('/inici');
 }
