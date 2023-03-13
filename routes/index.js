@@ -7,6 +7,8 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/login', function (req, res, next) {
+  res.clearCookie("user");
+  res.clearCookie("id");
   res.render('login');
 });
 
@@ -32,6 +34,10 @@ router.post('/desa', function (req, res, next) {
 
 router.get('/get-data', function (req, res, next) {
   bd.obtenirDadesBD(req, res, next);
+});
+
+router.get('/get-admin', function (req, res, next) {
+  bd.obtenirAdminBD(req, res, next);
 });
 
 router.post('/save-data', function (req, res, next) {
