@@ -56,13 +56,13 @@ section.h-100.gradient-form
                   .form-outline.mb-4
                     input#form2Example11.form-control(type='text' placeholder='Usuari' name='username' pattern='^[A-Za-z0-9_]{1,15}$' required='')
                   .form-outline.mb-4
-                    input.form-control(type='password' placeholder='Contrasenya' name='password' title='Ha de contenir 8 caràcters i almenys un número, una majúscula i una minúscula' required='')
+                    input.form-control(type='password' placeholder='Contrasenya' name='password' pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" title='Ha de contenir 8 caràcters i almenys un número, una majúscula, una minúscula i un símbol' required='')
                   .text-center.pt-1.mb-5.pb-1
                     button.btn.gradient-custom-2.mb-3(type='submit' value='desa') Inicia sessi&oacute;
             #borde-cambiar.col-lg-6.d-flex.align-items-center.gradient-custom-2
               .text-white.px-3.py-4.p-md-5.mx-md-4
                 h4.mb-4 Informaci&oacute; sobre els nostres serveis
                 p.small.mb-0
-                  | Time Bank by SGX consisteix en una aplicaci&oacute; d&apos;un banc del temps.
-                  | Un banc del temps &eacute;s una iniciativa comunit&agrave;ria d&apos;intercanvi de temps, que emula simb&ograve;licament
-                  | el funcionament d&apos;un banc, per&ograve; en el qual all&ograve; que es &quot;presta&quot; i es &quot;rep&quot; &eacute;s temps dedicat a serveis a les persones.
+                  | Time Bank by SGX consisteix en una aplicació d'un banc del temps.
+                  | Un banc del temps és una iniciativa comunitària d'intercanvi de temps, que emula simbólicament
+                  | el funcionament d'un banc, però en el qual allò; que es "presta" i es "rep" és temps dedicat a serveis a les persones.

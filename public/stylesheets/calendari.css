@@ -203,6 +203,7 @@ button {
   text-align: center;
   transition: 1s;
   font-size: 14px;
+  margin-bottom: 3%;
 }
 
   .logout:hover {
