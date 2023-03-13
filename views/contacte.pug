@@ -65,18 +65,18 @@ section
 // Enllaç a document JavaScript
 script.
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+    navigator.geolocation.getCurrentPosition(obtenirGeolocalitzacio, errorGeolocalitzacio);
   } else {
     alert("Error: Tu navegador no soporta la geolocalización");
   }
 
-  function successFunction(position) {
+  function obtenirGeolocalitzacio(position) {
     var lat = position.coords.latitude;
     var lon = position.coords.longitude;
     console.log("Tu ubicación actual es: " + lat + ", " + lon);
   }
 
-  function errorFunction(error) {
+  function errorGeolocalitzacio(error) {
     console.log("Error: No se ha podido obtener la ubicación.");
   }
 script(src='./javascripts/estils.js')
