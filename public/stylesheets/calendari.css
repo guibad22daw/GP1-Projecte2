@@ -15,6 +15,7 @@ button {
   width: 75px;
   cursor: pointer;
   box-shadow: 0px 0px 2px gray;
+  font-family: 'Poppins', sans-serif;
   border: none;
   outline: none;
   padding: 5px;
@@ -46,7 +47,7 @@ button {
   color: white;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  background: rgba(76,142,255,1);
+  background: rgba(76, 142, 255, 1);
   border-radius: 7px;
   margin-bottom: 10px;
 }
@@ -80,11 +81,15 @@ button {
 }
 
 .day:hover {
-  background-color: /*#e8faed*/ #E0F1F8;
+  background-color:
+    /*#e8faed*/
+    #E0F1F8;
 }
 
 .day+#currentDay {
-  background-color: /*#e8f4fa*/ #E0F1F8;
+  background-color:
+    /*#e8f4fa*/
+    #E0F1F8;
 }
 
 .event {
@@ -127,8 +132,8 @@ button {
   background-color: white;
   box-shadow: 0px 0px 3px black;
   border-radius: 15px;
-  width: 500px;
-  top: 100px;
+  width: 440px;
+  top: 200px;
   position: absolute;
   font-family: 'Poppins', sans-serif;
 
@@ -149,33 +154,43 @@ button {
   border: 2px solid red;
 }
 
-#cancelButton,
-#deleteButton {
-  background-color: #ff5c5c;
-  width: 48%;
-  height: 40px;
-  border-radius: 15px;
-  transition: 1s;
+#botonsEsdeveniment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-  #cancelButton:hover, #deleteButton:hover {
-    transition: 1s;
-    background-color: #ce0000;
-  }
+#cancelButton,
+#deleteButton {
+  background-color: #ff3838;
+  width: 35%;
+  height: 40px;
+  border-radius: 25px;
+  transition: 1s;
+  margin: 0px 0px 0px 10px;
+}
+
+#cancelButton:hover,
+#deleteButton:hover {
+  transition: 1s;
+  background-color: #ce0000;
+}
 
 #saveButton,
 #closeButton {
   background-color: #4c8eff;
-  width: 48%;
+  width: 35%;
   height: 40px;
-  border-radius: 15px;
+  border-radius: 25px;
   transition: 1s;
+  margin: 0px 10px 0px 0px;
 }
 
-  #saveButton:hover, #closeButton:hover {
-    transition: 1s;
-    background-color: #0058f0;
-  }
+#saveButton:hover,
+#closeButton:hover {
+  transition: 1s;
+  background-color: #0058f0;
+}
 
 #eventText {
   font-size: 14px;
@@ -193,12 +208,12 @@ button {
 }
 
 .logout {
-  text-decoration:none;
+  text-decoration: none;
   color: white;
   width: 110px;
-  background-color: #ff5c5c;
+  background-color: #ff3838;
   padding: 13px 17px 13px 17px;
-  border-radius: 20px;
+  border-radius: 25px;
   font-family: 'Poppins', sans-serif;
   text-align: center;
   transition: 1s;
@@ -206,6 +221,6 @@ button {
   margin-bottom: 3%;
 }
 
-  .logout:hover {
-    background-color: #ce0000;
-  }
+.logout:hover {
+  background-color: #ce0000;
+}
