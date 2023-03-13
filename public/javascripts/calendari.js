@@ -33,10 +33,6 @@ window.onload = async function () {
     const username = getCookie('user');
     const idUsuari = getCookie('id');
 
-    if (!idUsuari || !username) {
-       window.location.href = "/login";
-    }
-
     function openModal(date) {
         clicked = date;
 

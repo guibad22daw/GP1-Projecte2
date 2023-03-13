@@ -64,7 +64,7 @@ async function login(username, password, res) {
          fPosaCookie(user._id, username, res);
       } else {
          console.log("Error iniciant sessió.");
-         res.redirect('/login');
+         res.redirect('/error');
       }
    }
 }

@@ -1,3 +1,4 @@
+const cookieParser = require('cookie-parser');
 var express = require('express');
 var router = express.Router();
 var bd = require('./bd');
@@ -13,7 +14,10 @@ router.get('/login', function (req, res, next) {
 });
 
 router.get('/inici', function (req, res, next) {
-  res.render('inici');
+  let idUsuari = req.cookies.id;
+  let user = req.cookies.user;
+  if (user && idUsuari) res.render('inici');
+  else res.redirect('/login')
 });
 
 router.get('/informacio', function (req, res, next) {
@@ -26,6 +30,10 @@ router.get('/serveis', function (req, res, next) {
 
 router.get('/contacte', function (req, res, next) {
   res.render('contacte');
+});
+
+router.get('/error', function (req, res, next) {
+  res.render('error');
 });
 
 router.post('/desa', function (req, res, next) {
