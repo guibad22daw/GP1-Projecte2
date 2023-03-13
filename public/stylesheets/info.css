@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 .contingut-text {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     width: 65%;
     margin: auto;
+    font-size: 15px;
 }
 
 video {

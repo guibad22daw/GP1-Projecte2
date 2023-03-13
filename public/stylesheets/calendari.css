@@ -76,7 +76,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .day:hover {
@@ -130,7 +130,7 @@ button {
   width: 500px;
   top: 100px;
   position: absolute;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
 
 }
 
@@ -199,9 +199,10 @@ button {
   background-color: #ff5c5c;
   padding: 13px 17px 13px 17px;
   border-radius: 20px;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-align: center;
   transition: 1s;
+  font-size: 14px;
 }
 
   .logout:hover {
