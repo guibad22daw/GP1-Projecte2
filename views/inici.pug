@@ -38,28 +38,28 @@ head
     #calendar
   #newEventModal
     h2 Nou esdeveniment
-    // <input id="eventTitleInput" placeholder="Descripció de l'esdeveniment" />
     p Selecciona la activitat que vols oferir o rebre:
     select#eventTitleInput(name='serveis' style='padding: 10px; border-radius: 10px;')
-      option(value='Fútbol - Oferir' selected='') Fútbol - Oferir
-      option(value='Fútbol - Rebre') Fútbol - Rebre
-      option(value='Basket - Oferir') Basket - Oferir
-      option(value='Basket - Rebre') Basket - Rebre
-      option(value='Tennis - Oferir') Tennis - Oferir
-      option(value='Tennis - Rebre') Tennis - Rebre
-      option(value='Escacs - Oferir') Escacs - Oferir
-      option(value='Escacs - Rebre') Escacs - Rebre
-      option(value='Anglès - Oferir') Anglés - Oferir
-      option(value='Anglès - Rebre') Anglés - Rebre
-      option(value='Cuina - Oferir') Cuina - Oferir
-      option(value='Cuina - Rebre') Cuina - Rebre
+      option(value='Fútbol' selected='') Fútbol 
+      option(value='Basket') Basket 
+      option(value='Tennis') Tennis
+      option(value='Escacs') Escacs
+      option(value='Anglès') Anglés
+      option(value='Cuina') Cuina
     br
+    select#opcioOferirRebre(name='serveis' style='padding: 10px; border-radius: 10px;')
+      option(value='Oferir' selected='') Oferir 
+      option(value='Rebre') Rebre 
+    br
+    input#descripcio(type='text' style='margin: 5px; width: 97%; height: 50px')
     #botonsEsdeveniment
-      button#saveButton Guardar
-      button#cancelButton Cancel·lar
+      button#saveButton(type='button') Guardar
+      button#cancelButton(type='button') Cancel·lar
+  
   #deleteEventModal
     h2 Esdeveniment
-    p#eventText
+    h4#eventText
+    h5#eventDescription
     button#deleteButton Esborrar
     button#closeButton Tancar
   #modalBackDrop

@@ -13,7 +13,9 @@ const userSchema = new mongoose.Schema({
 const eventsSchema = new mongoose.Schema({
    user: { type: String, required: true },
    date: { type: String, required: true },
-   title: { type: String, required: true },
+   servei: { type: String, required: true },
+   tipus: { type: String, required: true },
+   descripcio: { type: String, required: false }
 }, { versionKey: false });
 
 const Usuari = mongoose.model('usuaris', userSchema);
@@ -36,6 +38,7 @@ exports.obtenirDadesBD = async function (req, res, next) {
 
 exports.guardarDadesBD = async function (req, res, next) {
    const events = await req.body;
+   console.log(events);
    await Event.deleteMany({});
 
    Event.insertMany(events).then(function () {

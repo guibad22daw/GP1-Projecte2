@@ -48,7 +48,7 @@ router.get('/get-admin', function (req, res, next) {
   bd.obtenirAdminBD(req, res, next);
 });
 
-router.post('/save-data', function (req, res, next) {
+router.post('/desaEsdeveniment', function (req, res, next) {
   bd.guardarDadesBD(req, res, next);
 });
 

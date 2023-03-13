@@ -7,9 +7,10 @@ window.onload = async function () {
     const deleteEventModal = document.getElementById('deleteEventModal');
     const backDrop = document.getElementById('modalBackDrop');
     const eventTitleInput = document.getElementById('eventTitleInput');
+    const opcioOferirRebre = document.getElementById('opcioOferirRebre');
+    const descripcio = document.getElementById('descripcio');
     const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',];
     let eventForDay;
-
 
     function getCookie(name) {
         const value = `; ${document.cookie}`;
@@ -22,14 +23,14 @@ window.onload = async function () {
             const response = await fetch('/get-data');
             const data = await response.json();
             return data;
-        } catch(error) {
-            console.error(error);            
+        } catch (error) {
+            console.error(error);
         }
     }
-    
+
     let events = await getData();
     //let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
-    
+
     const username = getCookie('user');
     const idUsuari = getCookie('id');
 
@@ -43,7 +44,8 @@ window.onload = async function () {
         }
 
         if (eventForDay) {
-            document.getElementById('eventText').innerText = eventForDay.title;
+            document.getElementById('eventText').innerText = eventForDay.servei;
+            document.getElementById('eventDescription').innerText = eventForDay.descripcio;
             deleteEventModal.style.display = 'block';
         } else {
             newEventModal.style.display = 'block';
@@ -103,9 +105,15 @@ window.onload = async function () {
                     eventDiv.classList.add('event');
 
 
-                    eventDiv.innerText = eventForDay.title;
-                    if (eventDiv.innerText.includes('Rebre')) {
-                        eventDiv.setAttribute('id', 'rebre');
+                    eventDiv.innerText = eventForDay.servei;
+                    if (username=='admin'){
+                        if (events.find(event => event.servei == eventDiv.innerText && event.date == dayString && event.tipus == "Rebre")) {
+                            eventDiv.setAttribute('id', 'rebre');
+                        }
+                    } else {
+                        if (events.find(event => event.servei == eventDiv.innerText && event.date == dayString && event.user == username && event.tipus == "Rebre")) {
+                            eventDiv.setAttribute('id', 'rebre');
+                        }
                     }
                     daySquare.appendChild(eventDiv);
                 }
@@ -136,11 +144,13 @@ window.onload = async function () {
             events.push({
                 user: username,
                 date: clicked,
-                title: eventTitleInput.value,
+                servei: eventTitleInput.value,
+                tipus: opcioOferirRebre.value,
+                descripcio: descripcio.value != undefined ? descripcio.value : '',
             });
 
             try {
-                fetch('/save-data', {
+                fetch('/desaEsdeveniment', {
                     method: 'POST',
                     body: JSON.stringify(events),
                     headers: { 'Content-Type': 'application/json' }
@@ -149,7 +159,7 @@ window.onload = async function () {
                 console.error(error);
             }
 
-            //localStorage.setItem('events', JSON.stringify(events));
+            localStorage.setItem('events', JSON.stringify(events));
             closeModal();
         } else {
             eventTitleInput.classList.add('error');
@@ -172,7 +182,7 @@ window.onload = async function () {
                 body: JSON.stringify(events),
                 headers: { 'Content-Type': 'application/json' }
             });
-        } catch(error){
+        } catch (error) {
             console.error(error);
         }
         localStorage.setItem('events', JSON.stringify(events));
