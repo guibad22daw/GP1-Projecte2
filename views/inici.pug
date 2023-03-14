@@ -28,13 +28,20 @@ head
     #header
       #monthDisplay
     #weekdays
-      div Dilluns
-      div Dimarts
-      div Dimecres
-      div Dijous
-      div Divendres
-      div Dissabte
-      div Diumenge
+      div 
+        p Dilluns
+      div 
+        p Dimarts
+      div 
+        p Dimecres
+      div 
+        p Dijous
+      div 
+        p Divendres
+      div 
+        p Dissabte
+      div 
+        p Diumenge
     #calendar-container
       #calendar
   #newEventModal
@@ -57,12 +64,13 @@ head
       button#saveButton(type='button') Guardar
       button#cancelButton(type='button') Cancel·lar
   #llegenda
+    p LLegenda:
     p 
       a(style="color: #1bb6f8; font-size: 20px") &#x25cf; 
-      | Oferir
+      | Activats que s'ofereixen
     p 
       a(style="color: #8000ff; font-size: 20px;") &#x25cf; 
-      | Rebre
+      | Activitats a rebre
   #deleteEventModal
     h2 Esdeveniment
     p#eventText
