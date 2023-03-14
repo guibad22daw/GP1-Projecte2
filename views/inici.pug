@@ -35,7 +35,8 @@ head
       div Divendres
       div Dissabte
       div Diumenge
-    #calendar
+    #calendar-container
+      #calendar
   #newEventModal
     h2 Nou esdeveniment
     p Selecciona la activitat que vols oferir o rebre:
@@ -46,16 +47,22 @@ head
       option(value='Escacs') Escacs
       option(value='Anglès') Anglés
       option(value='Cuina') Cuina
-    br
+    p(style='margin-top: -5px') Vols oferir o rebre el servei?
     select#opcioOferirRebre(name='serveis' style='padding: 10px; border-radius: 10px;')
       option(value='Oferir' selected='') Oferir 
       option(value='Rebre') Rebre 
-    br
-    input#descripcio(type='text' style='margin: 5px; width: 97%; height: 50px')
+    p Missatge:
+    textarea#descripcio
     #botonsEsdeveniment
       button#saveButton(type='button') Guardar
       button#cancelButton(type='button') Cancel·lar
-  
+  #llegenda
+    p 
+      a(style="color: #1bb6f8; font-size: 20px") &#x25cf; 
+      | Oferir
+    p 
+      a(style="color: #8000ff; font-size: 20px;") &#x25cf; 
+      | Rebre
   #deleteEventModal
     h2 Esdeveniment
     p#eventText
