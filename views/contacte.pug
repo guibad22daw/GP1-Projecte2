@@ -62,8 +62,10 @@ section
                   label.form-label(for='form3Example4')
                 button.btn.btn-primary.btn-block.mb-4(type='submit' style="width: 100%;")
                   | Envia
-#map(style='margin: auto; width: 850px; border-radius: 10px')
-p#ubicacion
+hr
+#map(style='margin: auto; width: 800px; border-radius: 10px')
+  h1 La teva ubicació
+p#link
 // Enllaç a document JavaScript
 script.
   if (navigator.geolocation) {
@@ -75,20 +77,23 @@ script.
   function obtenirGeolocalitzacio(position) {
     var latitud = position.coords.latitude;
     var longitud = position.coords.longitude;
-    console.log("Tu ubicación actual es: " + latitud + ", " + longitud);
+    console.log("La teva ubicació actual és: " + latitud + ", " + longitud);
 
     var mapDiv = document.getElementById("map");
+    var linkMap = document.getElementById("link");
     var ubicacion = document.getElementById("ubicacion");
     var mapIframe = document.createElement("iframe");
-    mapIframe.setAttribute("height", "350");
+    mapIframe.setAttribute("height", "500");
     mapIframe.setAttribute("width", "800");
     mapIframe.setAttribute("frameborder", "0");
     mapIframe.setAttribute("scrolling", "no");
     mapIframe.setAttribute("marginheight", "0");
     mapIframe.setAttribute("marginwidth", "0");
-    mapIframe.setAttribute("src", `https://www.openstreetmap.org/export/embed.html?bbox=${longitud}%2C${latitud}%2C${longitud}%2C${latitud}&amp;layer=mapnik&amp;marker=${latitud}%2C${longitud}`);
+    mapIframe.setAttribute("style", "border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.34) 0px 5px 10px;");
+    mapIframe.setAttribute("src", `https://www.openstreetmap.org/export/embed.html?bbox=${longitud}%2C${latitud}%2C${longitud}%2C${latitud}&amp;layer=mapnik&amp;marker=${latitud}%2C${longitud}&mlat=41.467904&mlon=2.2183936`);
     mapDiv.appendChild(mapIframe);
-    ubicacion.innerHTML = "Hola";
+    linkMap.innerHTML = `<a href="https://www.openstreetmap.org/export/embed.html?bbox=${longitud}%2C${latitud}%2C${longitud}%2C${latitud}&amp;layer=mapnik&amp;marker=${latitud}%2C${longitud}&mlat=41.467904&mlon=2.2183936">
+                        Veure ubicació a OpenStreetMap</a>`;
   }
 
   function errorGeolocalitzacio(error) {
