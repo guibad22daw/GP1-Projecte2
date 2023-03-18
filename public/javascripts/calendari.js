@@ -29,7 +29,6 @@ window.onload = async function () {
     }
 
     let events = await getData();
-    // let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
 
     const username = getCookie('user');
     const idUsuari = getCookie('id');
@@ -193,8 +192,6 @@ window.onload = async function () {
         } catch (error) {
             console.error(error);
         }
-        localStorage.setItem('events', JSON.stringify(events));
-
         closeModal();
     }
 
