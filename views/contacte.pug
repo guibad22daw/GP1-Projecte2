@@ -62,7 +62,7 @@ section
                   label.form-label(for='form3Example4')
                 button.btn.btn-primary.btn-block.mb-4(type='submit' style="width: 100%;")
                   | Envia
-#map
+#map(style='margin: auto; width: 850px; border-radius: 10px')
 p#ubicacion
 // Enllaç a document JavaScript
 script.
@@ -81,6 +81,7 @@ script.
     var ubicacion = document.getElementById("ubicacion");
     var mapIframe = document.createElement("iframe");
     mapIframe.setAttribute("height", "350");
+    mapIframe.setAttribute("width", "800");
     mapIframe.setAttribute("frameborder", "0");
     mapIframe.setAttribute("scrolling", "no");
     mapIframe.setAttribute("marginheight", "0");
