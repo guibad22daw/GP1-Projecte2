@@ -2,7 +2,7 @@ doctype html
 head
   meta(charset='UTF-8')
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
-  title Contacte - BCNArquitectes
+  title Contacte
   link(rel='stylesheet' href='../stylesheets/estils.css')
   link(rel='stylesheet' href='../stylesheets/contacte.css')
   // Bootsrat
@@ -71,7 +71,7 @@ script.
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(obtenirGeolocalitzacio, errorGeolocalitzacio);
   } else {
-    alert("Error: Tu navegador no soporta la geolocalización");
+    alert("Error: El teu navegador no soporta la geolocalització.");
   }
 
   function obtenirGeolocalitzacio(position) {
