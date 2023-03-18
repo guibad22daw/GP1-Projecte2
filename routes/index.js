@@ -4,7 +4,7 @@ var router = express.Router();
 var bd = require('./bd');
 
 router.get('/', function (req, res, next) {
-  res.render('inici');
+  res.redirect('/inici');
 });
 
 router.get('/login', function (req, res, next) {

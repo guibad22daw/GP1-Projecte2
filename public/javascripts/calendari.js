@@ -10,7 +10,7 @@ window.onload = async function () {
     const opcioOferirRebre = document.getElementById('opcioOferirRebre');
     const descripcio = document.getElementById('descripcio');
     const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',];
-    let eventForDay;
+    let eventsForDay, eventForDay;
 
     function getCookie(name) {
         const value = `; ${document.cookie}`;
@@ -29,28 +29,35 @@ window.onload = async function () {
     }
 
     let events = await getData();
-    //let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
+    // let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
 
     const username = getCookie('user');
     const idUsuari = getCookie('id');
 
-    function openModal(date) {
+    function veureEsdeveniment(date, id) {
         clicked = date;
 
         if (username == 'admin') {
-            eventForDay = events.find(e => e.date === clicked);
+            eventForDay = events.find(e => e.date === clicked && e._id.includes(id));
         } else {
-            eventForDay = events.find(e => e.date === clicked && e.user == username);
+            eventForDay = events.find(e => e.date === clicked && e.user == username && e._id.includes(id));
         }
 
         if (eventForDay) {
+            console.log('element :>> ', eventForDay);
             document.getElementById('eventText').innerText = eventForDay.servei;
             document.getElementById('eventDescription').innerText = eventForDay.descripcio;
             deleteEventModal.style.display = 'block';
-        } else {
-            newEventModal.style.display = 'block';
         }
 
+        backDrop.style.display = 'block';
+        if (!e) var e = window.event;
+        e.stopPropagation();
+    }
+
+    function creaEsdeveniment(date) {
+        clicked = date;
+        newEventModal.style.display = 'block';
         backDrop.style.display = 'block';
     }
 
@@ -90,9 +97,9 @@ window.onload = async function () {
                 daySquare.innerText = i - paddingDays;
 
                 if (username == 'admin') {
-                    eventForDay = events.find(event => event.date == dayString);
+                    eventsForDay = events.filter(event => event.date == dayString);
                 } else {
-                    eventForDay = events.find(event => event.user == username && event.date == dayString);
+                    eventsForDay = events.filter(event => event.user == username && event.date == dayString);
                 }
 
                 if (i - paddingDays === day && nav === 0) {
@@ -100,25 +107,27 @@ window.onload = async function () {
                 }
 
 
-                if (eventForDay) {
-                    const eventDiv = document.createElement('div');
-                    eventDiv.classList.add('event');
+                if (eventsForDay) {
+                    eventsForDay.forEach(element => {
+                        const eventDiv = document.createElement('div');
+                        eventDiv.classList.add('event');
 
-
-                    eventDiv.innerText = eventForDay.servei;
-                    if (username=='admin'){
-                        if (events.find(event => event.servei == eventDiv.innerText && event.date == dayString && event.tipus == "Rebre")) {
-                            eventDiv.setAttribute('id', 'rebre');
+                        eventDiv.innerText = element.servei;
+                        if (username == 'admin') {
+                            if (events.find(event => event.servei == eventDiv.innerText && event.date == dayString && event.tipus == "Rebre")) {
+                                eventDiv.setAttribute('id', 'rebre');
+                            }
+                        } else {
+                            if (events.find(event => event.servei == eventDiv.innerText && event.date == dayString && event.user == username && event.tipus == "Rebre")) {
+                                eventDiv.setAttribute('id', 'rebre');
+                            }
                         }
-                    } else {
-                        if (events.find(event => event.servei == eventDiv.innerText && event.date == dayString && event.user == username && event.tipus == "Rebre")) {
-                            eventDiv.setAttribute('id', 'rebre');
-                        }
-                    }
-                    daySquare.appendChild(eventDiv);
+                        daySquare.appendChild(eventDiv);
+                        eventDiv.addEventListener('click', () => veureEsdeveniment(dayString, element._id));
+                    });
                 }
 
-                daySquare.addEventListener('click', () => openModal(dayString));
+                daySquare.addEventListener('click', () => creaEsdeveniment(dayString));
             } else {
                 daySquare.classList.add('padding');
             }
@@ -137,7 +146,7 @@ window.onload = async function () {
         load();
     }
 
-    function saveEvent() {
+    async function saveEvent() {
         if (eventTitleInput.value) {
             eventTitleInput.classList.remove('error');
 
@@ -155,11 +164,10 @@ window.onload = async function () {
                     body: JSON.stringify(events),
                     headers: { 'Content-Type': 'application/json' }
                 });
-            } catch(error){
+            } catch (error) {
                 console.error(error);
             }
-
-            localStorage.setItem('events', JSON.stringify(events));
+            events = await getData();
             closeModal();
         } else {
             eventTitleInput.classList.add('error');
@@ -177,7 +185,7 @@ window.onload = async function () {
             }
         }
         try {
-            fetch('/save-data', {
+            fetch('/desaEsdeveniment', {
                 method: 'POST',
                 body: JSON.stringify(events),
                 headers: { 'Content-Type': 'application/json' }
