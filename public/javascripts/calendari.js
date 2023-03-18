@@ -43,13 +43,13 @@ window.onload = async function () {
         }
 
         if (eventForDay) {
-            console.log('element :>> ', eventForDay);
             document.getElementById('eventText').innerText = eventForDay.servei;
             document.getElementById('eventDescription').innerText = eventForDay.descripcio;
             deleteEventModal.style.display = 'block';
         }
-
         backDrop.style.display = 'block';
+        document.getElementById('deleteButton').addEventListener('click', function () { deleteEvent(date, id) });
+        document.getElementById('closeButton').addEventListener('click', closeModal);
         if (!e) var e = window.event;
         e.stopPropagation();
     }
@@ -58,9 +58,12 @@ window.onload = async function () {
         clicked = date;
         newEventModal.style.display = 'block';
         backDrop.style.display = 'block';
+        document.getElementById('saveButton').addEventListener('click', saveEvent);
+        document.getElementById('cancelButton').addEventListener('click', closeModal);
     }
 
-    function load() {
+    async function load() {
+        events = await getData();
         const dt = new Date();
 
         if (nav !== 0) {
@@ -113,11 +116,11 @@ window.onload = async function () {
 
                         eventDiv.innerText = element.servei;
                         if (username == 'admin') {
-                            if (events.find(event => event.servei == eventDiv.innerText && event.date == dayString && event.tipus == "Rebre")) {
+                            if (events.find(event => event.servei == eventDiv.innerText && event.date == dayString && event._id == element._id && event.tipus == "Rebre")) {
                                 eventDiv.setAttribute('id', 'rebre');
                             }
                         } else {
-                            if (events.find(event => event.servei == eventDiv.innerText && event.date == dayString && event.user == username && event.tipus == "Rebre")) {
+                            if (events.find(event => event.servei == eventDiv.innerText && event.date == dayString && event.user == username && event._id == element._id &&event.tipus == "Rebre")) {
                                 eventDiv.setAttribute('id', 'rebre');
                             }
                         }
@@ -162,46 +165,36 @@ window.onload = async function () {
                     method: 'POST',
                     body: JSON.stringify(events),
                     headers: { 'Content-Type': 'application/json' }
-                });
+                })
             } catch (error) {
                 console.error(error);
             }
-            events = await getData();
             closeModal();
+            load();
         } else {
             eventTitleInput.classList.add('error');
         }
     }
 
-    function deleteEvent() {
-        if (username == 'admin') { events = events.filter(event => event.date !== clicked); }
-        else {
-            const index = events.findIndex(event => event.user === username && event.date === clicked);
-            if (index !== -1) {
-                events.splice(index, 1);
-                console.log(events);
-
+    function deleteEvent(clicked, id) {
+        let index;
+        if (username == 'admin') index = events.findIndex(event => event.date === clicked && event._id == id);
+        else index = events.findIndex(event => event.user === username && event.date === clicked && event._id == id);
+        if (index !== -1) {
+            events.splice(index, 1);
+            try {
+                fetch('/desaEsdeveniment', {
+                    method: 'POST',
+                    body: JSON.stringify(events),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+            } catch (error) {
+                console.error(error);
             }
         }
-        try {
-            fetch('/desaEsdeveniment', {
-                method: 'POST',
-                body: JSON.stringify(events),
-                headers: { 'Content-Type': 'application/json' }
-            });
-        } catch (error) {
-            console.error(error);
-        }
         closeModal();
+        load();
     }
 
-    function initButtons() {
-        document.getElementById('saveButton').addEventListener('click', saveEvent);
-        document.getElementById('cancelButton').addEventListener('click', closeModal);
-        document.getElementById('deleteButton').addEventListener('click', deleteEvent);
-        document.getElementById('closeButton').addEventListener('click', closeModal);
-    }
-
-    initButtons();
     load();
 }
