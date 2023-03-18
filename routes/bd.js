@@ -66,8 +66,8 @@ async function login(username, password, res) {
          console.log('Iniciant sessió...');
          fPosaCookie(user._id, username, res);
       } else {
-         console.log("Error iniciant sessió.");
-         res.redirect('/error');
+         let missatge = "Contrasenya incorrecta.";
+         res.redirect('/login?missatge=' + encodeURIComponent(missatge));
       }
    }
 }

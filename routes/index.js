@@ -8,9 +8,11 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/login', function (req, res, next) {
+  const missatge = req.query.missatge;
   res.clearCookie("user");
   res.clearCookie("id");
-  res.render('login');
+  console.log('missatge :>> ', missatge);
+  res.render('login',{missatge});
 });
 
 router.get('/inici', function (req, res, next) {
