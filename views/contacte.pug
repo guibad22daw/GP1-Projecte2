@@ -90,9 +90,9 @@ script.
     mapIframe.setAttribute("marginheight", "0");
     mapIframe.setAttribute("marginwidth", "0");
     mapIframe.setAttribute("style", "border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.34) 0px 5px 10px;");
-    mapIframe.setAttribute("src", `https://www.openstreetmap.org/export/embed.html?bbox=${longitud}%2C${latitud}%2C${longitud}%2C${latitud}&amp;layer=mapnik&amp;marker=${latitud}%2C${longitud}&mlat=41.467904&mlon=2.2183936`);
+    mapIframe.setAttribute("src", `https://www.openstreetmap.org/export/embed.html?bbox=${longitud}%2C${latitud}%2C${longitud}%2C${latitud}&amp;layer=mapnik&amp;marker=${latitud}%2C${longitud}&mlat=${latitud}&mlon=${longitud}`);
     mapDiv.appendChild(mapIframe);
-    linkMap.innerHTML = `<a href="https://www.openstreetmap.org/export/embed.html?bbox=${longitud}%2C${latitud}%2C${longitud}%2C${latitud}&amp;layer=mapnik&amp;marker=${latitud}%2C${longitud}&mlat=41.467904&mlon=2.2183936">
+    linkMap.innerHTML = `<a href="https://www.openstreetmap.org/export/embed.html?bbox=${longitud}%2C${latitud}%2C${longitud}%2C${latitud}&amp;layer=mapnik&amp;marker=${latitud}%2C${longitud}&mlat=${latitud}&mlon=${longitud}">
                         Veure ubicació a OpenStreetMap</a>`;
   }
 
