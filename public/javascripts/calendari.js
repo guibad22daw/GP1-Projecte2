@@ -8,6 +8,7 @@ window.onload = async function () {
    const backDrop = document.getElementById("modalBackDrop");
    const eventTitleInput = document.getElementById("eventTitleInput");
    const opcioOferirRebre = document.getElementById("opcioOferirRebre");
+   const opcioHora = document.getElementById("time");
    const descripcio = document.getElementById("descripcio");
    const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
    let eventsForDay, eventForDay;
@@ -36,25 +37,22 @@ window.onload = async function () {
       clicked = date;
 
       if (username == "admin") {
-         eventForDay = events.find(
-            (e) => e.date === clicked && e._id.includes(id)
-         );
+         eventForDay = events.find((e) => e.date === clicked && e._id === id);
       } else {
-         eventForDay = events.find(
-            (e) =>
-               e.date === clicked && e.user == username && e._id.includes(id)
-         );
+         eventForDay = events.find((e) => e.date === clicked && e.user == username && e._id === id);
       }
 
       if (eventForDay) {
-         document.getElementById("eventText").innerText = eventForDay.servei;
-         document.getElementById("eventDescription").innerText = eventForDay.descripcio;
+         document.getElementById("eventText").innerHTML = `<b>Activitat:</b> ${eventForDay.servei}`;
+         document.getElementById("eventHora").innerHTML = `<b>Hora:</b> ${eventForDay.hora}`;
+         document.getElementById("eventUsuari").innerHTML = `<b>Creat per:</b> ${eventForDay.user}`;
+         document.getElementById("eventDescription").innerHTML = `<b>Descripció:</b><br/>${eventForDay.descripcio}`;
          deleteEventModal.style.display = "block";
       }
 
       backDrop.style.display = "block";
       document.getElementById("deleteButton").addEventListener("click", function () {
-         deleteEvent(date, id);
+         esborraEsdeveniment(eventForDay);
       });
       document.getElementById("closeButton").addEventListener("click", closeModal);
 
@@ -66,7 +64,7 @@ window.onload = async function () {
       clicked = date;
       newEventModal.style.display = "block";
       backDrop.style.display = "block";
-      document.getElementById("saveButton").addEventListener("click", saveEvent);
+      document.getElementById("saveButton").addEventListener("click", desaEsdeveniment);
       document.getElementById("cancelButton").addEventListener("click", closeModal);
    }
 
@@ -123,20 +121,20 @@ window.onload = async function () {
                   const eventDiv = document.createElement("div");
                   eventDiv.classList.add("event");
 
-                  eventDiv.innerText = element.servei;
+                  eventDiv.innerText = `${element.hora} - ${element.servei}`;
                   if (username == "admin") {
-                     if (events.find((event) => event.servei == eventDiv.innerText && event.date == dayString && event._id == element._id && event.tipus == "Rebre")) {
+                     if (events.find((event) => event.date == dayString && event._id == element._id && event.tipus == "Rebre")) {
                         eventDiv.setAttribute("id", "rebre");
                      }
                   } else {
-                     if (events.find((event) => event.servei == eventDiv.innerText && event.date == dayString && event.user == username && event._id == element._id && event.tipus == "Rebre")) {
+                     if (events.find((event) => event.date == dayString && event.user == username && event._id == element._id && event.tipus == "Rebre")) {
                         eventDiv.setAttribute("id", "rebre");
                      }
                   }
 
                   let temp = dayString.split('/');
                   var to = temp[2] + "-" + temp[1] + "-" + temp[0];
-                  if (new Date(to).getTime() < new Date(new Date().setDate(new Date().getDate()-1)).getTime()) {
+                  if (new Date(to).getTime() < new Date(new Date().setDate(new Date().getDate() - 1)).getTime()) {
                      eventDiv.setAttribute("id", "old");
                   } else {
 
@@ -147,10 +145,10 @@ window.onload = async function () {
             }
             let temp = dayString.split('/');
             var to = temp[2] + "-" + temp[1] + "-" + temp[0];
-            if (!(new Date(to).getTime() < new Date(new Date().setDate(new Date().getDate()-1)).getTime())) {
+            if (!(new Date(to).getTime() < new Date(new Date().setDate(new Date().getDate() - 1)).getTime())) {
                daySquare.addEventListener("click", () => creaEsdeveniment(dayString));
             } else {
-               daySquare.style.cssText='background-color: #f0f1f2; cursor: default'
+               daySquare.style.cssText = 'background-color: #f0f1f2; cursor: default'
             }
          } else {
             daySquare.classList.add("padding");
@@ -170,13 +168,14 @@ window.onload = async function () {
       load();
    }
 
-   async function saveEvent() {
+   async function desaEsdeveniment() {
       if (eventTitleInput.value) {
          eventTitleInput.classList.remove("error");
 
          let event = {
             user: username,
             date: clicked,
+            hora: opcioHora.value,
             servei: eventTitleInput.value,
             tipus: opcioOferirRebre.value,
             descripcio: descripcio.value != undefined ? descripcio.value : "",
@@ -197,20 +196,15 @@ window.onload = async function () {
       }
    }
 
-   async function deleteEvent(clicked, id) {
-      let index;
-      if (username == "admin") index = events.find((event) => event.date === clicked && event._id == id);
-      else index = events.find((event) => event.user === username && event.date === clicked && event._id == id);
-      if (index !== undefined) {
-         try {
-            fetch("/esborraEsdeveniment", {
-               method: "POST",
-               body: JSON.stringify(index),
-               headers: { "Content-Type": "application/json" },
-            });
-         } catch (error) {
-            console.error(error);
-         }
+   async function esborraEsdeveniment(event) {
+      try {
+         fetch("/esborraEsdeveniment", {
+            method: "POST",
+            body: JSON.stringify(event),
+            headers: { "Content-Type": "application/json" },
+         });
+      } catch (error) {
+         console.error(error);
       }
       closeModal();
    }

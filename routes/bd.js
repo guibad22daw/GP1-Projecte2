@@ -16,6 +16,7 @@ const eventsSchema = new mongoose.Schema(
    {
       user: { type: String, required: true },
       date: { type: String, required: true },
+      hora: { type: String, required: true },
       servei: { type: String, required: true },
       tipus: { type: String, required: true },
       descripcio: { type: String, required: false },

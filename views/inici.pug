@@ -65,11 +65,17 @@ head
       option(value='Anglès') Anglés
       option(value='Cuina') Cuina
     p(style='margin-top: -5px') Vols oferir o rebre el servei?
-    select#opcioOferirRebre(name='serveis' style='padding: 10px; border-radius: 10px;')
+    select#opcioOferirRebre(name='serveis')
       option(value='Oferir' selected='') Oferir 
       option(value='Rebre') Rebre 
+    p Hora:
+    select#time(name="hora")
+      each hour in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
+        each minute in ['00', '15', '30', '45']
+          - var time = ("0" + hour).slice(-2) + ":" + minute
+          option(value=time)= time
     p Missatge:
-    textarea#descripcio
+    textarea#descripcio(maxlength="180")
     #botonsEsdeveniment
       button#saveButton(type='button') Guardar
       button#cancelButton(type='button') Cancel·lar
@@ -97,6 +103,8 @@ head
   #deleteEventModal
     h2 Esdeveniment
     p#eventText
+    p#eventHora
+    p#eventUsuari
     p#eventDescription
     #botonsEsdeveniment
       button#deleteButton Esborrar

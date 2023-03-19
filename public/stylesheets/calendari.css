@@ -119,14 +119,14 @@ button {
 
 .event {
   font-size: 10px;
-  padding: 3px;
+  padding: 3px 3px 3px 8px;
   background-color: #1bb6f8;
   color: white;
   border-radius: 5px;
   max-height: 55px;
   overflow: hidden;
   height: 15px;
-  text-align: center;
+  text-align: left;
   line-height: 15px;
   transition: 0.5s;
 }
@@ -137,16 +137,7 @@ button {
 }
 
 #rebre {
-  font-size: 10px;
-  padding: 3px;
   background-color: #8000ff;
-  color: white;
-  border-radius: 5px;
-  max-height: 55px;
-  overflow: hidden;
-  height: 15px;
-  text-align: center;
-  line-height: 15px;
 }
 
 #rebre:hover {
@@ -235,12 +226,14 @@ button {
   font-size: 15px;
 }
 
-#opcioOferirRebre {
+#opcioOferirRebre, #time{
   box-sizing: border-box;
   outline: none;
   border: none;
   box-shadow: 0px 0px 3px gray;
   font-size: 15px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 #descripcio {
@@ -311,9 +304,17 @@ button {
   font-size: 20px;
 }
 
-#eventDescription {
+#eventDescription, #eventHora{
   font-size: 14px;
   margin: -12px 0px 25px 0px;
+  line-break: anywhere;
+}
+
+#eventUsuari {
+  font-size: 14px;
+  display: inline;
+  float: right;
+  margin-top: -135px;
 }
 
 #modalBackDrop {
