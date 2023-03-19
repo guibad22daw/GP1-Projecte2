@@ -29,7 +29,6 @@ window.onload = async function () {
       }
    }
 
-
    const username = getCookie("user");
    const idUsuari = getCookie("id");
 
@@ -49,19 +48,16 @@ window.onload = async function () {
 
       if (eventForDay) {
          document.getElementById("eventText").innerText = eventForDay.servei;
-         document.getElementById("eventDescription").innerText =
-            eventForDay.descripcio;
+         document.getElementById("eventDescription").innerText = eventForDay.descripcio;
          deleteEventModal.style.display = "block";
       }
+
       backDrop.style.display = "block";
-      document
-         .getElementById("deleteButton")
-         .addEventListener("click", function () {
-            deleteEvent(date, id);
-         });
-      document
-         .getElementById("closeButton")
-         .addEventListener("click", closeModal);
+      document.getElementById("deleteButton").addEventListener("click", function () {
+         deleteEvent(date, id);
+      });
+      document.getElementById("closeButton").addEventListener("click", closeModal);
+
       if (!e) var e = window.event;
       e.stopPropagation();
    }
@@ -205,6 +201,19 @@ window.onload = async function () {
       }
       closeModal();
    }
+
+   function initButtons() {
+      document.getElementById('nextButton').addEventListener('click', () => {
+         nav++;
+         load();
+      });
+
+      document.getElementById('backButton').addEventListener('click', () => {
+         nav--;
+         load();
+      });
+   }
+   initButtons();
    load();
-   
+
 };

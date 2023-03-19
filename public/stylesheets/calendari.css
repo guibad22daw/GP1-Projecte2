@@ -33,8 +33,28 @@ button {
   justify-content: space-between;
 }
 
-#header button {
-  background-color: #92a1d1;
+#nextBack-container {
+  margin-top: -0.1em;
+}
+
+#backButton, #nextButton {
+  width: 40px;
+  height: 40px;
+  background-color: #4c8eff;
+  border-radius: 75px;
+  vertical-align: middle;
+  display: inline-block;
+  transition: 0.5s;
+}
+
+#backButton {
+  margin-right: 0.4em;
+}
+
+#backButton:hover,
+#nextButton:hover {
+  transition: 1s;
+  background-color: #0058f0;
 }
 
 #container {
