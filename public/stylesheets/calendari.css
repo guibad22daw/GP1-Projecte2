@@ -148,8 +148,16 @@ button {
   block-size: fit-content;
 }
 
-#llegenda a{
-  padding-right: 7px;
+#llegenda span{
+  padding-right: 1em;
+  position: relative;
+}
+
+#llegenda svg {
+  width: 15px;
+  vertical-align: middle;
+  display: inline-block;
+  margin-bottom: 2px;
 }
 
 #newEventModal,

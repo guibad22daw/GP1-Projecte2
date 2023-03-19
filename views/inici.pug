@@ -65,12 +65,18 @@ head
       button#cancelButton(type='button') Cancel·lar
   #llegenda-container
     #llegenda
-      p LLegenda:
-      p 
-        a(style="color: #1bb6f8; font-size: 20px") &#x25cf; 
+      p Llegenda:
+      p(style='margin-top: -1px')
+        span
+          svg(xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' style='fill: #1bb6f8' )
+            title square-rounded
+            path(d='M8 3H16C18.76 3 21 5.24 21 8V16C21 18.76 18.76 21 16 21H8C5.24 21 3 18.76 3 16V8C3 5.24 5.24 3 8 3Z')
         | Activats que s'ofereixen
-      p 
-        a(style="color: #8000ff; font-size: 20px;") &#x25cf;
+      p(style='margin-top: -0.1em')
+        span
+          svg(xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' style='fill: #8000ff')
+            title square-rounded
+            path(d='M8 3H16C18.76 3 21 5.24 21 8V16C21 18.76 18.76 21 16 21H8C5.24 21 3 18.76 3 16V8C3 5.24 5.24 3 8 3Z')
         | Activitats a rebre
   #deleteEventModal
     h2 Esdeveniment

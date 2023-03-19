@@ -1,4 +1,3 @@
-const cookieParser = require('cookie-parser');
 var express = require('express');
 var router = express.Router();
 var bd = require('./bd');
@@ -42,16 +41,16 @@ router.post('/desa', function (req, res, next) {
   bd.desaUsuariBD(req, res, next);
 });
 
-router.get('/get-data', function (req, res, next) {
+router.get('/obtenirDades', function (req, res, next) {
   bd.obtenirDadesBD(req, res, next);
 });
 
-router.get('/get-admin', function (req, res, next) {
-  bd.obtenirAdminBD(req, res, next);
+router.post('/desaEsdeveniment', function (req, res, next) {
+  bd.desaEsdevenimentBD(req, res, next);
 });
 
-router.post('/desaEsdeveniment', function (req, res, next) {
-  bd.guardarDadesBD(req, res, next);
+router.post('/esborraEsdeveniment', function (req, res, next) {
+  bd.esborraEsdevenimentBD(req, res, next);
 });
 
 module.exports = router;
