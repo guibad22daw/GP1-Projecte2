@@ -90,10 +90,9 @@ script.
     mapIframe.setAttribute("marginheight", "0");
     mapIframe.setAttribute("marginwidth", "0");
     mapIframe.setAttribute("style", "border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.34) 0px 5px 10px;");
-    mapIframe.setAttribute("src", `https://www.openstreetmap.org/export/embed.html?bbox=${longitud}%2C${latitud}%2C${longitud}%2C${latitud}&amp;layer=mapnik&amp;marker=${latitud}%2C${longitud}&mlat=${latitud}&mlon=${longitud}`);
+    mapIframe.setAttribute("src", `https://www.openstreetmap.org/export/embed.html?bbox=${longitud},${latitud},${longitud},${latitud+0.005}&layer=mapquest&marker=${latitud},${longitud}`);
     mapDiv.appendChild(mapIframe);
-    linkMap.innerHTML = `<a href="https://www.openstreetmap.org/export/embed.html?bbox=${longitud}%2C${latitud}%2C${longitud}%2C${latitud}&amp;layer=mapnik&amp;marker=${latitud}%2C${longitud}&mlat=${latitud}&mlon=${longitud}">
-                        Veure ubicació a OpenStreetMap</a>`;
+    linkMap.innerHTML = `<a href="https://www.openstreetmap.org/export/embed.html?bbox=${longitud},${latitud},${longitud},${latitud+0.005}6&layer=mapquest&marker=${latitud},${longitud}">Veure ubicació a OpenStreetMap</a>`;
   }
 
   function errorGeolocalitzacio(error) {
