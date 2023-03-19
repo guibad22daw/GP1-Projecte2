@@ -133,12 +133,25 @@ window.onload = async function () {
                         eventDiv.setAttribute("id", "rebre");
                      }
                   }
-                  daySquare.appendChild(eventDiv);
+
+                  let temp = dayString.split('/');
+                  var to = temp[2] + "-" + temp[1] + "-" + temp[0];
+                  if (new Date(to).getTime() < new Date(new Date().setDate(new Date().getDate()-1)).getTime()) {
+                     eventDiv.setAttribute("id", "old");
+                  } else {
+
+                  }
                   eventDiv.addEventListener("click", () => veureEsdeveniment(dayString, element._id));
+                  daySquare.appendChild(eventDiv);
                });
             }
-
-            daySquare.addEventListener("click", () => creaEsdeveniment(dayString));
+            let temp = dayString.split('/');
+            var to = temp[2] + "-" + temp[1] + "-" + temp[0];
+            if (!(new Date(to).getTime() < new Date(new Date().setDate(new Date().getDate()-1)).getTime())) {
+               daySquare.addEventListener("click", () => creaEsdeveniment(dayString));
+            } else {
+               daySquare.style.cssText='background-color: #f0f1f2; cursor: default'
+            }
          } else {
             daySquare.classList.add("padding");
          }

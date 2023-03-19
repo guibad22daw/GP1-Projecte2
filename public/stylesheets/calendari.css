@@ -105,18 +105,16 @@ button {
   flex-direction: column;
   justify-content: space-between;
   font-family: 'Poppins', sans-serif;
+  transition: 0.5s;
 }
 
 .day:hover {
-  background-color:
-    /*#e8faed*/
-    #E0F1F8;
+  background-color: #d9ebfc;
+  transition: 0.3s;
 }
 
 .day+#currentDay {
-  background-color:
-    /*#e8f4fa*/
-    #E0F1F8;
+  background-color: #d9ebfc;
 }
 
 .event {
@@ -130,6 +128,12 @@ button {
   height: 15px;
   text-align: center;
   line-height: 15px;
+  transition: 0.5s;
+}
+
+.event:hover {
+  background-color: #009adc;
+  transition: 0.5s;
 }
 
 #rebre {
@@ -143,6 +147,31 @@ button {
   height: 15px;
   text-align: center;
   line-height: 15px;
+}
+
+#rebre:hover {
+  background-color: #6400c7;
+  transition: 0.5s;
+}
+
+#old {
+  font-size: 10px;
+  padding: 3px;
+  background-color: #b4b4b4;
+  color: white;
+  border-radius: 5px;
+  max-height: 55px;
+  overflow: hidden;
+  height: 15px;
+  text-align: center;
+  line-height: 15px;
+  transition: 0.5s;
+}
+
+#old:hover {
+  background-color: #9a9a9a;
+  transition: 0.5s;
+  cursor: pointer;
 }
 
 .padding {
