@@ -38,7 +38,6 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-
 https.createServer({
   key: fs.readFileSync('server.key'),
   cert: fs.readFileSync('server.cert')

@@ -32,6 +32,7 @@ window.onload = async function () {
 
    const username = getCookie("user");
    const idUsuari = getCookie("id");
+   document.getElementById('usuari').innerHTML = `Usuari: ${username}`;
 
    function veureEsdeveniment(date, id) {
       clicked = date;
@@ -194,6 +195,7 @@ window.onload = async function () {
       } else {
          eventTitleInput.classList.add("error");
       }
+      eventTitleInput.value = '';
    }
 
    async function esborraEsdeveniment(event) {
